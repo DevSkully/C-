@@ -25,6 +25,5 @@ class StringSort {
 			}
 		}
 		cout << endl;
-
 		}
 };

@@ -5,57 +5,62 @@ using namespace std;
 
 struct Room{
 	string name;
-	Room North;
-	Room South;
-	Room East;
-	Room West;
-}RoomPtr;
+	Room* North;
+	Room* South;
+	Room* East;
+	Room* West;
+};
 
-class Building{
+typedef Room* RoomPtr;
+
+class RoomManager{
 	private:
-		Room head;
+		Room* head;
 		int size=0;
+		int index=0;
 	
 	public:
 		//Constructor:
-		Building(){}
-		Builidin(int size){
-			this.size = size;
+		RoomManager(){}
+		RoomManager(int size){
+			this->size = size;
 		}
 
 		//Create New Room
-		RoomPtr* NewRoom(string name)
+		RoomPtr NewRoom(const string& BuildingLevel)
 		{
 			//Creating new Room with malloc
-			RoomPtr* newRoom = new RoomPtr;
+			RoomPtr newRoom = new Room;
 			
-			newRoom->name = '0'+to_string(index);
+			newRoom->name = BuildingLevel + to_string(index);
 			newRoom->North = NULL;
 			newRoom->South = NULL;
 			newRoom->East = NULL;
 			newRoom->West = NULL;
 
-			if (head == null)
-			{
+			if (head == NULL){
 				head = newRoom;
-				return head;
 			}
-		
+		    
+		    index++;
 			return newRoom;
 		}
 		
 		//Handling Doors Path
-		void Doors(RoomPtr* head){
-			
+		void DoorsHandler(RoomPtr head){
+			RoomPtr current = head;
+			int connections = rand() % 4;
+			// Print Probable Connections
+            cout << connections << endl;
+
 		}
 		
 		//Functions For Debgging:
 		void PrintRoom()
 		{
-			while(!isEmpty))
-			{
+			while(!isEmpty()){
 				
-			}
+			}	
 			cout << endl;
 		}
 
@@ -80,4 +85,4 @@ class Building{
 			}
 			return 0;
 		}
-}
+};
